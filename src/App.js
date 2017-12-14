@@ -5,11 +5,20 @@ import Search from  './Search'
 
 
 class App extends Component {
+
+    state = {
+        results: []
+    }
+
+    updateResults = (data) => {
+        this.setState({ results:data})
+    }
+
   render() {
     return (
       <div className="App">
-<Search/>
-<Results/>
+        <Search updateResults={this.updateResults} />
+        <Results data={this.state.results} />
       </div>
     );
   }

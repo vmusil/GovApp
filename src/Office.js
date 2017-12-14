@@ -2,11 +2,15 @@ import React from 'react'
 
 class Office extends React.PureComponent{
 
-    render(){
+    render() {
+        console.log(this.props)
+        const {...data} = this.props
+
         return (<div>
-            Fin. urad, Praha 3 <br/>
-            Po: 10=12.... <br/>
-            <a href="example.gov" >www....cz</a>
+            {data.name} <br/>
+            {data.addressStreet}, {data.addressCity} <br/>
+            {data.officeHours} <br/>
+            <a href={data.www} >{data.www}</a>
             
             </div>)
     

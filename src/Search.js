@@ -18,12 +18,13 @@ class Search extends React.PureComponent {
 
     submitForm = (e) =>  {
         e.preventDefault()
+
         fetch(`http://www.kontaktynaurady.cz/api/v1/organizations?${this.state.field}=*${this.state.value}*`)
         .then(response => {
             return response.json()
 
         }).then(data => {
-            console.log(data)
+            this.props.updateResults(data)
         })
     }
 
