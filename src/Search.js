@@ -1,13 +1,27 @@
 import React from 'react'
 
-class Search extends React.PureComponent{
+class Search extends React.PureComponent {
 
-    render(){
+    state = {
+        field: 'name',
+        value: 'Husinec'
+    }
+
+    changeField = (e) => {
+        this.setState({ field: e.target.value })
+    }
+
+
+    changeValue = (e) => {
+        this.setState({ value: e.target.value })
+    }
+
+    render() {
         return (
             <div>
-            <input value="name" />
-            <input value="Praha 3"/>
-            <button>search</button>
+                <input value={this.state.field} onChange={this.changeField} />
+                <input value={this.state.value} onChange={this.changeValue} />
+                <button>search</button>
             </div>
         )
     }
