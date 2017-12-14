@@ -11,7 +11,7 @@ class Office extends React.PureComponent{
             {data.name} <br/>
             {data.addressStreet}, {data.addressCity} <br/>
             {data.officeHours} <br/>
-            {data.telefon.telCislo} <br/>
+            {data.telefon && data.telefon.telCislo} <br/>
             <a href={data.www} >{data.www}</a> <br/>
             <img src={mapUrl} /> <br/>
             
