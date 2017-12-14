@@ -16,13 +16,24 @@ class Search extends React.PureComponent {
         this.setState({ value: e.target.value })
     }
 
+    submitForm = (e) =>  {
+        e.preventDefault()
+        fetch(`http://www.kontaktynaurady.cz/api/v1/organizations?${this.state.field}=*${this.state.value}*`)
+        .then(response => {
+            return response.json()
+
+        }).then(data => {
+            console.log(data)
+        })
+    }
+
     render() {
         return (
-            <div>
+            <form onSubmit={this.submitForm}>
                 <input value={this.state.field} onChange={this.changeField} />
                 <input value={this.state.value} onChange={this.changeValue} />
                 <button>search</button>
-            </div>
+            </form>
         )
     }
 }
